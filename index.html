@@ -1,30 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GTA6 Countdown</title>
-  <link rel="stylesheet" href="./particles.css">
+  <title>GTA VI Countdown</title>
   <link rel="icon" href="favicon.ico">
-  <style>
-    body {
+  
+    <style>
+    .wrapper {
       background-image: url('images/GTA6.png');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
       background-position: center center;
     }
+    .center-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .center-row > * {
+      margin-bottom: 20px;
+    }
+    .contrast {
+      color: #ffffff;
+    }
+
+    .countdown-timer {
+    margin-top: 30px;
+    height: 200px;
+    width: 600px;
+    transform: scale(1.1)
+    }
+
+    .video-chatroom {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    }
+
+    .video-chatroom > :first-child {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 5px;
+    }
+
+    .video-chatroom > :last-child {
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 5px;
+    }
+
+    .iframe-youtube {
+    overflow: hidden;
+    border-radius: 15px;
+    width: 854px;
+    height: 481px; 
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    }
+
+    .iframe-youtube > iframe {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    transform: scale(1.006); /* You can adjust the scale size to zoom as you wish */
+    }
+
+    .GTA-logo {
+      position: absolute;
+      top: 15px;
+      justify-content: center;
+    }
   </style>
+
+
 </head>
-<body>
-  <main>
-    <p style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/biViwlbyZ1o?amp%3bautoplay=1%3bcontrols%3D1" title="GTA6 Countdown YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-<script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="columns" data-timezone="America/New_York" data-date="2025-04-01 00:00">GTA 6 releases in:</a>
-    </p>
-    <p style="text-align:center;">
-    <iframe src="https://thelounge.hybridirc.com/?join=gta6countdown" style="border:0; width:20%; height:500px;" title="GTA6 Countdown discussion channel"></iframe>
+<body class="wrapper">
+  <main role="main" aria-label="Main content" class="center-row">
+    <div class="countdown-timer" tabindex="0">
+        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+          <a href="https://logwork.com/countdown-49y8" class="countdown-timer" data-style="columns" data-timezone="Europe/Stockholm" data-date="2025-03-19 08:46" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
+    </div>
+    <div class="GTA-logo">
+    <a href="images/GTA6.png" target="_blank"><img style="width: 600px; height; 400px; float: center;" src=images/GTA6.png></a>
+    </div>
+    <div class="video-chatroom" width: 888px>
+    <div class="iframe-youtube" tabindex="0">
+        <iframe title="GTA 6 countdown video" 
+                width="854" /* Adjust iframe size to match div container */
+                height="481" 
+                src="https://www.youtube.com/embed/BIViwlbyZ1o?si=XY2ceBe239yqre1j&amp;autoplay=1;controls=1" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+      <div class="countdown-chatroom" tabindex="0">
+        <iframe title="GTA 6 discussion Chatroom" src="https://thelounge.hybridirc.com/?join=gta6countdown" style="border:0; width:400px; height:480px; border-bottom-right-radius: 20px; border-top-right-radius: 20px; border-top-left-radius: 0; border-bottom-left-radius: 0;"></iframe>
+      </div>
+    </div>
   </main>
 </body>
 </html>
