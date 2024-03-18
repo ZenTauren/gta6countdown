@@ -1,106 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>GTA VI Countdown</title>
-  <link rel="icon" href="favicon.ico">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GTA VI Countdown</title>
+    <link rel="icon" href="favicon.ico">
     <style>
-    .wrapper {
-      background-image: url('images/GTA6.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center center;
-    }
-    .center-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/GTA6.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center center;
+            color: #ffffff;
+        }
 
-    .center-row > * {
-      margin-bottom: 20px;
-    }
-    .contrast {
-      color: #ffffff;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding: 30px 0;
+        }
 
-    .countdown-timer {
-    margin-top: 30px;
-    height: 200px;
-    width: 600px;
-    transform: scale(1.1)
+        .GTA-logo {
+            position: relative;
+            z-index: 2;
+        }
+
+        .GTA-logo a img {
+            width: 700px;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .countdown-timer {
+            position: relative;
+            z-index: 1;
+            margin-top: -17px;
+            width: 600px;
+        }
+
+        .video-and-chat-container {
+            display: flex;
+            justify-content: center;
+            gap: 4em;
+            margin-top: 20px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            max-width: 1254px;
+            z-index: 1;
+            
+        }
+
+        .twitter-wrapper {
+            position: relative;
+            overflow: clip;
+            width: 360px;
+            height: 480px !important;
+            z-index: 2; 
+            border-radius: 15px;
+        }
+
+        .iframe-youtube > iframe {
+            width: 854px;
+            height: 480px;
+            border: 0px;
+            position: relative;
+            transform: scale(1.0);
+        }
+
+        .countdown-chatroom > div > iframe {
+            width: 360px;
+            height: 480px;
+            border: 0px;
+        }
+        
+        .twitter-feed, .iframe-youtube > iframe, .countdown-chatroom > div > iframe {
+            border-radius: 15px;
+        }
+        
+        @media (min-width: 2000px) {
+        .iframe-youtube > iframe {
+            width: 1280px;
+            height: 720px;
+        }
+
+        .countdown-chatroom > div > iframe {
+            height: 720px;
+            width: 450
+        }
+        .twitter-wrapper {
+            width: 360px;
+            height: 720px !important;
+        }
     }
-
-    .video-chatroom {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    }
-
-    .video-chatroom > :first-child {
-    text-align: center;
-    margin-top: 30px;
-    margin-left: 5px;
-    }
-
-    .video-chatroom > :last-child {
-    text-align: center;
-    margin-top: 30px;
-    margin-right: 5px;
-    }
-
-    .iframe-youtube {
-    overflow: hidden;
-    border-radius: 15px;
-    width: 854px;
-    height: 481px; 
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    }
-
-    .iframe-youtube > iframe {
-    position: relative;
-    top: -2px;
-    left: -2px;
-    transform: scale(1.006); /* You can adjust the scale size to zoom as you wish */
-    }
-
-    .GTA-logo {
-      position: absolute;
-      top: 15px;
-      justify-content: center;
-    }
-  </style>
-
-
+    </style>
 </head>
-<body class="wrapper">
-  <main role="main" aria-label="Main content" class="center-row">
-    <div class="countdown-timer" tabindex="0">
-        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-          <a href="https://logwork.com/countdown-49y8" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-date="2025-02-7 00:00" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
-    </div>
-    <div class="GTA-logo">5
-    <a href="images/GTAVI.png" target="_blank"><img style="width: 600px; height; 400px; float: center;" src=images/GTAVI.png></a>
-    </div>
-    <div class="video-chatroom" width: 888px>
-    <div class="iframe-youtube" tabindex="0">
-        <iframe title="GTA 6 countdown video" 
-                width="854" /* Adjust iframe size to match div container */
-                height="481" 
-                src="https://www.youtube.com/embed/BIViwlbyZ1o?si=XY2ceBe239yqre1j&amp;autoplay=1;controls=1" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-        </iframe>
-    </div>
-      <div class="countdown-chatroom" tabindex="0">
-        <iframe title="GTA 6 discussion Chatroom" src="https://thelounge.hybridirc.com/?join=gta6countdown" style="border:0; width:400px; height:480px; border-bottom-right-radius: 20px; border-top-right-radius: 20px; border-top-left-radius: 0; border-bottom-left-radius: 0;"></iframe>
-      </div>
-    </div>
-  </main>
+
+<body>
+    <main role="main" aria-label="Main content" class="container">
+        <div class="GTA-logo">
+            <a href="images/GTAVI.png" target="_blank" rel="noopener">
+                <img src="images/GTAVI.png" alt="GTA Logo">
+            </a>
+        </div>
+        <div class="countdown-timer" tabindex="0">
+            <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+            <a href="https://logwork.com/countdown-49y8" target="_blank" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-date="2025-02-7 00:00" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
+        </div>
+      <div class="video-and-chat-container">
+        <div class="twitter-wrapper">
+          <div class="twitter-feed">
+            <a class="twitter-timeline" data-width="400" data-height="720" data-dnt="true" href="https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw">Tweets by RockstarGames</a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+            <div class="iframe-youtube">
+                <iframe title="GTA 6 countdown video" src="https://www.youtube.com/embed/BIViwlbyZ1o?si=XY2ceBe239yqre1j&amp;autoplay=1;controls=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="countdown-chatroom">
+                <div>
+                    <iframe title="GTA 6 discussion Chatroom" src="https://thelounge.hybridirc.com/?join=gta6countdown"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
