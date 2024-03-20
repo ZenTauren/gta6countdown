@@ -1,5 +1,6 @@
  <!DOCTYPE html>
  <html lang="en">
+
    <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,11 +51,11 @@
          <button id="toggleTweet"></button>
        </div>
 
-       <div class="countdown-chatroom" id="chatroomWrapper">
-         <div>
-           <iframe src="https://kiwiirc.hybridirc.com/#gtaviwaitingroom" allow="camera; microphone; display-capture; fullscreen" style="border:0; width:100%; height:100%;"></iframe>
-         </div>
-       </div>
+<div class="countdown-chatroom" role="complementary" aria-label="Chatroom">
+    <div id="chatroomWrapper">
+        <iframe id="chatroomIframe" title="Chatroom" style="border:0; width:100%; height:100%;"></iframe>
+    </div>
+</div>
        <div class="video-and-chat-container">
          <div class="iframe-youtube">
            <iframe id="ytplayer" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/pUotKi9N7bc?autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&color=white&iv_load_policy=3" frameborder="0" allowfullscreen id="youtubeVideo">
@@ -75,13 +76,13 @@
      <script>
        window.onload = function() {
          var faviconURL = "favicon.ico";
-         var githubLogoURL = "https://github.com/ZenTauren/gta6countdown/raw/main/images/GTAVI.png";
+         var bannerLogoURL = "https://github.com/ZenTauren/gta6countdown/raw/main/images/GTAVI.png";
          var twitterLink = "https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw";
          var youtubeVideoLink = "https://www.youtube.com/embed/pUotKi9N7bc?autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&color=white&iv_load_policy=3";
 
          document.getElementById("faviconLink").setAttribute("href", faviconURL);
-         document.getElementById("githubLink").setAttribute("href", githubLogoURL);
-         document.getElementById("githubLogo").setAttribute("src", githubLogoURL);
+         document.getElementById("githubLink").setAttribute("href", bannerLogoURL);
+         document.getElementById("githubLogo").setAttribute("src", bannerLogoURL);
          document.getElementById("twitterLink").setAttribute("href", twitterLink);
          document.getElementById("youtubeVideo").setAttribute("src", youtubeVideoLink);
        };
