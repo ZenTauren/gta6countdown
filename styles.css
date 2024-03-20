@@ -12,6 +12,7 @@
         --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
         --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
         --twitter-ph-expanded: url('https://i.imgur.com/Ut6Tv1M.png');
+        --border-radius: 15px;
       }
 
       body {
@@ -76,7 +77,7 @@
         left: 0;
         width: var(--default-width);
         height: var(--default-height);
-        border-radius: 15px;
+        border-radius: var(--border-radius);
         margin: 0;
         overflow: hidden;
         z-index: 3;
@@ -100,6 +101,8 @@
         height: var(--default-height);
         border-radius: 15px;
         transform: translateY(-50%);
+        z-index: 8;
+        padding-right: 40px;
       }
 
       .countdown-chatroom>div,
@@ -381,14 +384,14 @@
           top: 0px;
           width: 101%;
           height: 101%;
-          border-radius: 15px;
+          border-radius: var(--border-radius);
           background-color: rgba(52, 167, 173, 0.5);
         }
 
         .popup-content {
           position: relative;
           z-index: 2;
-          border-radius: 15px;
+          border-radius: var(--border-radius);
         }
 
         #dismiss {
@@ -412,7 +415,7 @@
           background-color: #FA2C70;
           animation: countdown 5s linear forwards;
           z-index: 1;
-          border-radius: 10px;
+          border-radius: 5px;
         }
 
         @keyframes countdown {
