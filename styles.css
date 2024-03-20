@@ -5,13 +5,13 @@
         --default-height: 480px;
         --expanded-width: 450px;
         --expanded-height: 720px;
-        --background-image: url('images/background.png');
-        --twitter-icon-bg: url('images/twitter-background.png');
-        --twitter-icon-fg: url('images/twitter-foreground.png');
-        --chat-icon-bg: url('images/chat-background.png');
-        --chat-icon-fg: url('images/chat-foreground.png');
-        --twitter-ph: url('images/twitter-placeholder.png');
-        --twitter-ph-expanded: url('images/twitter-placeholder-extended.png');
+        --background-image: url('https://github.com/ZenTauren/gta6countdown/blob/main/images/GTA6.png?raw=true');
+        --twitter-icon-bg: url('https://i.imgur.com/mdpx7Tc.png');
+        --twitter-icon-fg: url('https://i.imgur.com/Gchzccz.png');
+        --chat-icon-bg: url('https://i.imgur.com/8TlDOEQ.png');
+        --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
+        --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
+        --twitter-ph-expanded: url('https://i.imgur.com/Ut6Tv1M.png');
         --border-radius: 15px;
       }
 
@@ -184,7 +184,7 @@
         top: -10%;
         /* To center oversize, set -50% of height value past 100% */
         left: -5%;
-        /* To center oversize, set -50% of width value past 100% ( */
+        /* To center oversize, set -50% of width value past 100% */
         width: 110%;
         height: 120%;
         background: var(--chat-icon-fg) no-repeat center;
@@ -316,114 +316,3 @@
           width: var(--expanded-width);
         }
       }
-
-
-
-      @media (max-height: 950px) {
-        .container {
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .GTA-logo {
-          position: absolute;
-          top: 0px;
-          max-width: 40%;
-          z-index: 2;
-        }
-
-        .timer-wrapper {
-          position: absolute;
-          bottom: 20px;
-          left: 50% -450px;
-          max-width: 45%;
-        }
-
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          /* Save our styles from the global default */
-        }
-
-        .popup-wrapper {
-          display: flex;
-          width: 300px;
-          height: 100px;
-          background-color: transparent;
-          border-radius: 15px;
-          overflow: hidden;
-        }
-
-        .popup {
-          padding: 10px;
-          position: absolute;
-          top: 20px;
-          left: 10%;
-          max-width: 300px;
-          background-color: white;
-          border: 1px solid black;
-          z-index: 10;
-          border-radius: 15px;
-
-          font-family: 'Arial', sans-serif;
-          font-size: 16px;
-          color: #fff;
-          text-align: center;
-          text-shadow: black 1px 2px 3px;
-        }
-
-        .popup {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          left: 0px;
-          top: 0px;
-          width: 101%;
-          height: 101%;
-          border-radius: var(--border-radius);
-          background-color: rgba(52, 167, 173, 0.5);
-        }
-
-        .popup-content {
-          position: relative;
-          z-index: 2;
-          border-radius: var(--border-radius);
-        }
-
-        #dismiss {
-          position: absolute;
-          top: 7px;
-          right: 7px;
-          width: 25px;
-          height: 25px;
-          background: url('images/close.png') no-repeat center center / contain;
-          border: none;
-          text-indent: -9999px;
-          z-index: 10;
-        }
-
-        #progress-bar {
-          position: absolute;
-          top: 96%;
-          left: 2.5%;
-          width: 95%;
-          height: 5%;
-          background-color: #FA2C70;
-          animation: countdown 5s linear forwards;
-          z-index: 1;
-          border-radius: 5px;
-        }
-
-        @keyframes countdown {
-          from {
-            width: 100%;
-          }
-
-          to {
-            width: 0;
-          }
-        }
