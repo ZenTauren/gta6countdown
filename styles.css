@@ -400,7 +400,7 @@
           right: 7px;
           width: 25px;
           height: 25px;
-          background: url('close.png') no-repeat center center / contain;
+          background: url('images/close.png') no-repeat center center / contain;
           border: none;
           text-indent: -9999px;
           z-index: 10;
