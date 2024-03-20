@@ -6,8 +6,8 @@
         --expanded-width: 450px;
         --expanded-height: 720px;
         --background-image: url('images/background.png');
-        --twitter-icon-bg: url('https://i.imgur.com/mdpx7Tc.png');
-        --twitter-icon-fg: url('https://i.imgur.com/Gchzccz.png');
+        --twitter-icon-bg: url('twitter-background.png');
+        --twitter-icon-fg: url('twitter-foreground.png');
         --chat-icon-bg: url('https://i.imgur.com/8TlDOEQ.png');
         --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
         --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
