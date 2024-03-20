@@ -8,10 +8,10 @@
         --background-image: url('images/background.png');
         --twitter-icon-bg: url('twitter-background.png');
         --twitter-icon-fg: url('twitter-foreground.png');
-        --chat-icon-bg: url('https://i.imgur.com/8TlDOEQ.png');
-        --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
-        --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
-        --twitter-ph-expanded: url('https://i.imgur.com/Ut6Tv1M.png');
+        --chat-icon-bg: url('chat-background.png');
+        --chat-icon-fg: url('chat-foreground.png');
+        --twitter-ph: url('twitter-placeholder.png');
+        --twitter-ph-expanded: url('twitter-placeholder-extended.png');
         --border-radius: 15px;
       }
 
