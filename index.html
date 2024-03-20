@@ -12,24 +12,12 @@
    </head>
 
    <body>
-     <main role="main" aria-label="Main content" class="container">
-       <div class="GTA-logo">
-         <a href="images/banner.png" target="_blank" rel="noopener" id="bannerLink">
-           <img src="images/banner.png" alt="GTA Logo" id="bannerLink">
-         </a>
-       </div>
-
-       <div class="popup-wrapper">
-         <div id="popup" class="popup" role="dialog" aria-labelledby="popupTitle" aria-describedby="popupDesc">
-           <div class="popup-content-wrapper">
-             <div class="popup-content">
-               <p>The countdown has been moved down due to size constraints.</p>
-             </div>
-             <div id="progress-bar"></div>
-           </div>
-           <button id="dismiss" aria-label="Dismiss Close Dialog">X</button>
-         </div>
-       </div>
+  <main role="main" aria-label="Main content" class="container">
+    <div class="GTA-logo">
+      <a href="https://github.com/ZenTauren/gta6countdown/raw/main/images/GTAVI.png" target="_blank" rel="noopener">
+        <img src="https://github.com/ZenTauren/gta6countdown/raw/main/images/GTAVI.png" alt="GTA Logo">
+      </a>
+    </div>
 
        <div class="timer-wrapper">
          <div class="countdown-timer" tabindex="0">
@@ -51,16 +39,17 @@
          <button id="toggleTweet"></button>
        </div>
 
-<div class="countdown-chatroom" role="complementary" aria-label="Chatroom">
+  <div class="countdown-chatroom" role="complementary" aria-label="Chatroom">
     <div id="chatroomWrapper">
-        <iframe id="chatroomIframe" title="Chatroom" style="border:0; width:100%; height:100%;"></iframe>
+      <iframe id="chatroomIframe" title="Chatroom" src="https://kiwiirc.hybridirc.com/#GTAVIWaitingRoom" style="border: 0; width: 100%; height:100%;"></iframe>
     </div>
-</div>
-       <div class="video-and-chat-container">
-         <div class="iframe-youtube">
-           <iframe id="ytplayer" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/pUotKi9N7bc?autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&color=white&iv_load_policy=3" frameborder="0" allowfullscreen id="youtubeVideo">
-           </iframe>
-         </div>
+  </div>
+    <div class="video-and-chat-container">
+      <div class="iframe-youtube">
+        <iframe id="youtubeVideo" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/pUotKi9N7bc?autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&color=white&iv_load_policy=3"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
 
 
      </main>
@@ -73,21 +62,7 @@
      <div class="schlangemann">
        <script type="text/javascript" src="https://www.counters-free.net/count/e3tl"></script>
      </div>
-     <script>
-       window.onload = function() {
-         var faviconURL = "favicon.ico";
-         var bannerLogoURL = "images/banner.png";
-         var twitterLink = "https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw";
-         var youtubeVideoLink = "https://www.youtube.com/embed/pUotKi9N7bc?autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&color=white&iv_load_policy=3";
 
-         document.getElementById("faviconLink").setAttribute("href", faviconURL);
-         document.getElementById("githubLink").setAttribute("href", bannerLogoURL);
-         document.getElementById("githubLogo").setAttribute("src", bannerLogoURL);
-         document.getElementById("twitterLink").setAttribute("href", twitterLink);
-         document.getElementById("youtubeVideo").setAttribute("src", youtubeVideoLink);
-       };
-
-     </script>
    </body>
 
  </html>
