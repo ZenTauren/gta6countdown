@@ -1,0 +1,426 @@
+      :root {
+        --toggle-button-width: 10px;
+        --vertical-position: 50%;
+        --default-width: 360px;
+        --default-height: 480px;
+        --expanded-width: 450px;
+        --expanded-height: 720px;
+        --background-image: url('https://github.com/ZenTauren/gta6countdown/blob/main/images/GTA6.png?raw=true');
+        --twitter-icon-bg: url('https://i.imgur.com/mdpx7Tc.png');
+        --twitter-icon-fg: url('https://i.imgur.com/Gchzccz.png');
+        --chat-icon-bg: url('https://i.imgur.com/8TlDOEQ.png');
+        --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
+        --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
+        --twitter-ph-expanded: url('https://i.imgur.com/Ut6Tv1M.png');
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: var(--background-image);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+        color: #ffffff;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        padding: 30px 0;
+      }
+
+      .GTA-logo {
+        position: relative;
+        z-index: 2;
+      }
+
+      .GTA-logo a img {
+        width: 700px;
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+      }
+
+      .countdown-timer {
+        position: relative;
+        z-index: 1;
+        margin-top: -17px;
+        width: 600px;
+      }
+
+      .video-and-chat-container {
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+        margin-top: 0px;
+        position: absolute;
+        top: var(--vertical-position);
+        transform: translateY(-50%);
+        width: 80%;
+        height: 50%;
+        z-index: 1;
+      }
+
+      .twitter-wrapper {
+        position: fixed;
+        top: var(--vertical-position);
+        left: 0;
+        width: var(--default-width);
+        height: var(--default-height);
+        border-radius: 15px;
+        margin: 0;
+        overflow: hidden;
+        z-index: 3;
+      }
+
+
+      .iframe-youtube>iframe {
+        position: relative;
+        width: 854px;
+        height: 480px;
+        border: 0px;
+        margin: 0px;
+
+      }
+
+      .countdown-chatroom {
+        position: fixed;
+        top: var(--vertical-position);
+        right: 0;
+        width: var(--default-width);
+        height: var(--default-height);
+        border-radius: 15px;
+        transform: translateY(-50%);
+      }
+
+      .countdown-chatroom>div,
+      .countdown-chatroom>div>iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .iframe-youtube {
+        top: var(--vertical position);
+        margin-top: 22px;
+      }
+
+      .twitter-feed,
+      .iframe-youtube>iframe,
+      .countdown-chatroom>div>iframe {
+        border-radius: 15px;
+      }
+
+      .schlangemann {
+        position: fixed;
+        right: 20px;
+        bottom: 10px;
+        z-index: 3;
+      }
+
+      .twitter-wrapper,
+      .countdown-chatroom,
+      .iframe-youtube {
+        position: fixed;
+        top: var(--vertical-position);
+        transform: translateY(-50%);
+      }
+
+      .twitter-wrapper {
+        width: var(--default-width);
+        border-radius: 15px;
+        height: 480px;
+        z-index: 2;
+        position: fixed;
+        left: -100%;
+        transition: left 0.5s ease-out;
+      }
+
+      .countdown-chatroom {
+        position: fixed;
+        right: 0;
+        /* initial state is visible */
+        transition: right 0.5s ease-out;
+      }
+
+
+
+      #toggleChatContainer {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        width: 100px;
+        height: 100px;
+        overflow: visible;
+      }
+
+      #toggleChat {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: visible;
+        padding: 5%;
+        box-sizing: border-box;
+        background: var(--chat-icon-bg) no-repeat center / cover;
+      }
+
+      #toggleChat::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        /* To center oversize, set -50% of height value past 100% */
+        left: -5%;
+        /* To center oversize, set -50% of width value past 100% ( */
+        width: 110%;
+        height: 120%;
+        background: var(--chat-icon-fg) no-repeat center;
+        background-size: contain;
+      }
+
+
+      #toggleTweetContainer {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+        width: 100px;
+        height: 100px;
+        overflow: visible;
+      }
+
+      #toggleTweet {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: visible;
+        padding: 5%;
+        box-sizing: border-box;
+        background: var(--twitter-icon-bg) no-repeat center / cover;
+      }
+
+      #toggleTweet::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: var(--twitter-icon-fg) no-repeat center;
+        background-size: contain;
+      }
+
+
+
+      #toggleTweet,
+      #toggleChat {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100%;
+        border: none;
+        border-radius: 20px;
+        overflow: visible;
+        z-index: 100;
+      }
+
+      .twitter-wrapper,
+      .countdown-chatroom {
+        position: fixed;
+        height: var(--default-height);
+        top: 50%;
+      }
+
+      .twitter-wrapper {
+        left: 0;
+        width: var(--default-width);
+        height: var(--default-height);
+        border-radius: 15px;
+        z-index: 2;
+      }
+
+      .twitter-feed-placeholder {
+        background-image: var(--twitter-ph);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .twitter-error {
+        display: block;
+        font-size: 18px;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+        text-align: center;
+        text-shadow: 2px 2px 4px #000000;
+        z-index: 1;
+        top: 10px;
+        position: relative;
+      }
+
+      .twitter-timeline {
+        background-color: transparent !important;
+      }
+
+      #twitterWrapper,
+      #chatroomWrapper {
+        margin: 20px;
+      }
+
+      .timer-wrapper {
+        height: 100px;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+
+
+
+      @media (min-width: 2200px) and (min-height: 1200px) {
+        .iframe-youtube>iframe {
+          margin-top: -4px;
+          width: 1280px;
+          height: 720px;
+        }
+
+        .twitter-feed-placeholder {
+          background-image: var(--twitter-ph-expanded);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .countdown-chatroom,
+        .twitter-wrapper {
+          height: var(--expanded-height);
+          width: var(--expanded-width);
+        }
+
+        .countdown-chatroom>* {
+          height: var(--expanded-height);
+          width: var(--expanded-width);
+        }
+      }
+
+
+
+      @media (max-height: 950px) {
+        .container {
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .GTA-logo {
+          position: absolute;
+          top: 0px;
+          max-width: 40%;
+          z-index: 2;
+        }
+
+        .timer-wrapper {
+          position: absolute;
+          bottom: 20px;
+          left: 50% -450px;
+          max-width: 45%;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          /* Save our styles from the global default */
+        }
+
+        .popup-wrapper {
+          display: flex;
+          width: 300px;
+          height: 100px;
+          background-color: transparent;
+          border-radius: 15px;
+          overflow: hidden;
+        }
+
+        .popup {
+          padding: 10px;
+          position: absolute;
+          top: 20px;
+          left: 10%;
+          max-width: 300px;
+          background-color: white;
+          border: 1px solid black;
+          z-index: 10;
+          border-radius: 15px;
+
+          font-family: 'Arial', sans-serif;
+          font-size: 16px;
+          color: #fff;
+          text-align: center;
+          text-shadow: black 1px 2px 3px;
+        }
+
+        .popup {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          left: 0px;
+          top: 0px;
+          width: 101%;
+          height: 101%;
+          border-radius: 15px;
+          background-color: rgba(52, 167, 173, 0.5);
+        }
+
+        .popup-content {
+          position: relative;
+          z-index: 2;
+          border-radius: 15px;
+        }
+
+        #dismiss {
+          position: absolute;
+          top: 7px;
+          right: 7px;
+          width: 25px;
+          height: 25px;
+          background: url('https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon-512.png') no-repeat center center / contain;
+          border: none;
+          text-indent: -9999px;
+          z-index: 10;
+        }
+
+        #progress-bar {
+          position: absolute;
+          top: 96%;
+          left: 2.5%;
+          width: 95%;
+          height: 5%;
+          background-color: #FA2C70;
+          animation: countdown 5s linear forwards;
+          z-index: 1;
+          border-radius: 10px;
+        }
+
+        @keyframes countdown {
+          from {
+            width: 100%;
+          }
+
+          to {
+            width: 0;
+          }
+        }
