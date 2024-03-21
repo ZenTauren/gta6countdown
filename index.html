@@ -1,67 +1,60 @@
- <!DOCTYPE html>
- <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-   <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>GTA VI Countdown</title>
-     <link rel="icon" href="favicon.ico">
-     <link rel="stylesheet" href="styles.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-     <script src="scripts.js"></script>
-   </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GTA VI Countdown</title>
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="scripts.js"></script>
+</head>
 
-   <body>
-  <main role="main" aria-label="Main content" class="container">
-    <div class="GTA-logo">
-      <a href="images/banner.png" target="_blank" rel="noopener">
-        <img src="images/banner.png" alt="GTA Logo">
-      </a>
-    </div>
-
-       <div class="timer-wrapper">
-         <div class="countdown-timer" tabindex="0">
-           <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-           <a href="https://logwork.com/countdown-49y8" target="_blank" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-date="2025-02-7 00:00" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
-         </div>
-       </div>
-
-       <div class="twitter-wrapper twitter-feed-placeholder" id="twitterWrapper">
-         <div class="twitter-feed">
-           <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw" id="twitterLink"></a>
-           <p class="twitter-error">If you're seeing this, your adblocker or browser settings is preventing Twitter from loading.</p>
-           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-         </div>
-       </div>
-
-
-       <div id="toggleTweetContainer">
-         <button id="toggleTweet"></button>
-       </div>
-
-  <div class="countdown-chatroom" role="complementary" aria-label="Chatroom">
-    <div id="chatroomWrapper">
-      <iframe id="chatroomIframe" title="Chatroom" src="https://kiwiirc.hybridirc.com/#GTAVIWaitingRoom" style="border: 0; width: 100%; height:100%;"></iframe>
-    </div>
+<body>
+	<main role="main" aria-label="Main content" class="container">
+		<div class="GTA-logo">
+			<a href="#"></a>
   </div>
-    <div class="video-and-chat-container">
-      <div class="iframe-youtube">
-        <iframe id="youtubeVideo" type="text/html" width="720" height="405" src="https://www.youtube.com/embed?listType=playlist&list=PLbW5XlFWkICKXYIWiCnrjVAdVlgM7TgRF&autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&fs=0&color=white" width="1280" height="720" frameborder="0"></iframe>
-      </div>
-    </div>
+  
+		<div id="toggleButtonsContainer">
+			<div id="toggleTweetContainer">
+				<button id="toggleTweet" aria-label="Toggle Tweet"></button>
+			</div>
+   
+			<div id="toggleChatContainer">
+				<button id="toggleChat" aria-label="Toggle Chat"></button>
+			</div>
+		</div>
+  
+		<div class="timer-wrapper">
+			<div class="countdown-timer" tabindex="0">
+				<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+				<a href="https://logwork.com/countdown-49y8" target="_blank" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-date="2025-02-7 00:00" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
+			</div>
+		</div>
 
+		<div class="twitter-wrapper twitter-feed-placeholder" id="twitterWrapper">
+			<div class="twitter-feed">
+				<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw" id="twitterLink"></a>
+				<p class="twitter-error">If you're seeing this, your adblocker or browser settings is preventing Twitter from loading.</p>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+		</div>
 
-     </main>
-     <div id="toggleChatContainer">
-       <button id="toggleChat"></button>
-     </div>
-     <button id="twitterToggleBtn" class="toggle-btn" aria-label="Toggle Twitter Feed" style=""></button>
+		<div class="countdown-chatroom" id="chatroomWrapper" role="complementary" aria-label="Chatroom">
+			<iframe id="chatroomIframe" title="Chatroom" src="https://kiwiirc.hybridirc.com/#GTAVIWaitingRoom" style="border: 0; width: 100%; height:100%;"></iframe>
+		</div>
+		<div class="video-and-chat-container">
+			<div class="iframe-youtube">
+				<iframe id="youtubeVideo" type="text/html" width="720" height="405" src="https://www.youtube.com/embed?listType=playlist&list=PLD74nWpzeYnIoChdm8ZmuU-ls0Km4qd2Y&autoplay=1&modestbranding=1&iv_load_policy=3" width="1920" height="1080" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
 
+		<div class="visitCounter">
+			<script type="text/javascript" src="https://www.counters-free.net/count/e3tl"></script>
+		</div>
 
-     <div class="schlangemann">
-       <script type="text/javascript" src="https://www.counters-free.net/count/e3tl"></script>
-     </div>
+</body>
 
-   </body>
-
- </html>
+</html>
