@@ -6,14 +6,14 @@
         --expanded-width: 450px;
         --expanded-height: 720px;
         --border-radius: 15px;
-        --background-image: url('https://i.imgur.com/W4AbYa5.jpeg');
-        --banner-logo: url('https://i.imgur.com/I4QUAVt.png');
-        --twitter-icon-bg: url('https://i.imgur.com/mdpx7Tc.png');
-        --twitter-icon-fg: url('https://i.imgur.com/Gchzccz.png');
-        --chat-icon-bg: url('https://i.imgur.com/8TlDOEQ.png');
-        --chat-icon-fg: url('https://i.imgur.com/inREVqI.png');
-        --twitter-ph: url('https://i.imgur.com/ScHNgKO.png');
-        --twitter-ph-expanded: url('https://i.imgur.com/Ut6Tv1M.png');
+        --background-image: url('images/background.png');
+        --banner-logo: url('images/banner.png');
+        --twitter-icon-bg: url('images/twitter-background.png');
+        --twitter-icon-fg: url('images/twitter-foreground.png');
+        --chat-icon-bg: url('images/chat-background.png');
+        --chat-icon-fg: url('images/chat-foreground.png');
+        --twitter-ph: url('images/twitter-placeholder.png');
+        --twitter-ph-expanded: url('images/twitter-placeholder-expanded.png');
       }
 
       body {
