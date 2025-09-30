@@ -19,8 +19,20 @@
       font-weight: bold;
     }
     .countdown {
-      font-size: 2rem;
+      font-size: 3rem;
       margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .countdown div {
+      background: #1e1e1e;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff5858, 0 0 40px #ff5858 inset;
+      font-weight: bold;
+      color: #ff5858;
+      min-width: 100px;
     }
     .media {
       display: flex;
@@ -55,7 +67,12 @@
     GTA VI Release Countdown
   </header>
 
-  <div class="countdown" id="countdown"></div>
+  <div class="countdown" id="countdown">
+    <div id="days">0d</div>
+    <div id="hours">0h</div>
+    <div id="minutes">0m</div>
+    <div id="seconds">0s</div>
+  </div>
 
   <div class="media">
     <img src="gta6-poster.jpg" alt="GTA VI Poster" width="600">
@@ -79,10 +96,12 @@
   </footer>
 
   <script>
-    // Countdown to GTA VI release (locked)
     const targetDate = new Date('2026-05-25T00:00:00').getTime();
 
-    const countdownEl = document.getElementById('countdown');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minsEl = document.getElementById('minutes');
+    const secsEl = document.getElementById('seconds');
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -93,11 +112,14 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      daysEl.textContent = `${days}d`;
+      hoursEl.textContent = `${hours}h`;
+      minsEl.textContent = `${minutes}m`;
+      secsEl.textContent = `${seconds}s`;
 
       if (distance < 0) {
         clearInterval(interval);
-        countdownEl.innerHTML = "GTA VI has released!";
+        document.getElementById('countdown').textContent = "GTA VI has released!";
       }
     }
 
