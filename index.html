@@ -13,7 +13,7 @@
       background: url('images/background.png') no-repeat center center fixed;
       background-size: cover;
       position: relative;
-      overflow-x: hidden;
+      overflow: hidden; /* prevent scrolling */
     }
     .overlay {
       position: absolute;
@@ -21,10 +21,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.3); /* overlay for readability */
+      background-color: rgba(0, 0, 0, 0.3);
       z-index: 0;
     }
-    header, .countdown, .media, .social, footer {
+    header, .countdown, .main-content, footer {
       position: relative;
       z-index: 1;
     }
@@ -50,6 +50,15 @@
       color: #ff5858;
       min-width: 100px;
     }
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      z-index: 1;
+    }
     .media {
       display: flex;
       flex-direction: column;
@@ -61,14 +70,14 @@
       border-radius: 12px;
     }
     .social {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
-      padding: 2rem;
+      width: 300px;
     }
     .social iframe {
       width: 100%;
-      min-height: 500px;
+      height: 500px;
     }
     footer {
       margin-top: 2rem;
@@ -90,20 +99,21 @@
     <div id="seconds">0s</div>
   </div>
 
-  <div class="media">
-    <img src="gta6-poster.jpg" alt="GTA VI Poster" width="600">
-    <iframe width="800" height="450" src="https://www.youtube.com/embed/QdBZY2fkU-0?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  <div class="social">
-    <div>
+  <div class="main-content">
+    <div class="social">
       <h2>Latest Twitter Updates</h2>
       <a class="twitter-timeline" data-height="500" href="https://twitter.com/RockstarGames">Tweets by RockstarGames</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
-    <div>
+
+    <div class="media">
+      <img src="gta6-poster.jpg" alt="GTA VI Poster" width="600">
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/QdBZY2fkU-0?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="social">
       <h2>Chat Room</h2>
-      <iframe src="https://www5.cbox.ws/box/?boxid=942671&boxtag=RJm7WQ" frameborder="0" width="100%" height="500"></iframe>
+      <iframe src="https://www5.cbox.ws/box/?boxid=942671&boxtag=RJm7WQ" frameborder="0" width="100%"></iframe>
     </div>
   </div>
 
