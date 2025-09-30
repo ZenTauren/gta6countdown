@@ -1,60 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GTA VI Countdown</title>
-	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="styles.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="scripts.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA VI Countdown</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0c0c0c;
+      color: #f1f1f1;
+      text-align: center;
+    }
+    header {
+      padding: 1rem;
+      background: #111;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin: 2rem 0;
+    }
+    .media {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    iframe {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    .social {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .social iframe {
+      width: 100%;
+      min-height: 500px;
+    }
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
-
 <body>
-	<main role="main" aria-label="Main content" class="container">
-		<div class="GTA-logo">
-			<a href="#"></a>
+  <header>
+    GTA VI Release Countdown
+  </header>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="media">
+    <img src="gta6-poster.jpg" alt="GTA VI Poster" width="600">
+    <iframe width="800" height="450" src="https://www.youtube.com/embed/QdBZY2fkU-0?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
   </div>
-  
-		<div id="toggleButtonsContainer">
-			<div id="toggleTweetContainer">
-				<button id="toggleTweet" aria-label="Toggle Tweet"></button>
-			</div>
-   
-			<div id="toggleChatContainer">
-				<button id="toggleChat" aria-label="Toggle Chat"></button>
-			</div>
-		</div>
-  
-		<div class="timer-wrapper">
-			<div class="countdown-timer" tabindex="0">
-				<script src="https://cdn.logwork.com/widget/countdown.js"></script>
-				<a href="https://logwork.com/countdown-49y8" target="_blank" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-date="2026-05-26 00:00" data-digitscolor="#fff" data-unitscolor="#fff"> . </a>
-			</div>
-		</div>
 
-		<div class="twitter-wrapper twitter-feed-placeholder" id="twitterWrapper">
-			<div class="twitter-feed">
-				<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/RockstarGames?ref_src=twsrc%5Etfw" id="twitterLink"></a>
-				<p class="twitter-error">If you're seeing this, your adblocker or browser settings is preventing Twitter from loading.</p>
-				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			</div>
-		</div>
+  <div class="social">
+    <div>
+      <h2>Latest Twitter Updates</h2>
+      <a class="twitter-timeline" data-height="500" href="https://twitter.com/RockstarGames">Tweets by RockstarGames</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div>
+      <h2>Chat Room</h2>
+      <iframe src="https://www5.cbox.ws/box/?boxid=942671&boxtag=RJm7WQ" frameborder="0" width="100%" height="500"></iframe>
+    </div>
+  </div>
 
-		<div class="countdown-chatroom" id="chatroomWrapper" role="complementary" aria-label="Chatroom">
-			<iframe id="chatroomIframe" title="Chatroom" src="https://kiwiirc.hybridirc.com/#GTAVIWaitingRoom" style="border: 0; width: 100%; height:100%;"></iframe>
-		</div>
-		<div class="video-and-chat-container">
-			<div class="iframe-youtube">
-				<iframe id="youtubeVideo" type="text/html" width="720" height="405" src="https://www.youtube.com/embed?listType=playlist&list=PLbW5XlFWkICKXYIWiCnrjVAdVlgM7TgRF&autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&fs=0&color=white" width="1280" height="720" frameborder="0"></iframe>
-			</div>
-		</div>
+  <footer>
+    Countdown set to May 25, 2026 @ 00:00
+  </footer>
 
-		<div class="visitCounter">
-			<script type="text/javascript" src="https://www.counters-free.net/count/e3tl"></script>
-		</div>
+  <script>
+    // Countdown to GTA VI release (locked)
+    const targetDate = new Date('2026-05-25T00:00:00').getTime();
 
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdownEl.innerHTML = "GTA VI has released!";
+      }
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
 </body>
-
 </html>
