@@ -1,397 +1,248 @@
-      :root {
-        --toggle-button-width: 10px;
-        --vertical-position: 50%;
-        --default-width: 360px;
-        --default-height: 480px;
-        --expanded-width: 450px;
-        --expanded-height: 720px;
-        --border-radius: 15px;
-        --background-image: url('images/background.png');
-        --banner-logo: url('images/banner.png');
-        --twitter-icon-bg: url('images/twitter-background.png');
-        --twitter-icon-fg: url('images/twitter-foreground.png');
-        --chat-icon-bg: url('images/chat-background.png');
-        --chat-icon-fg: url('images/chat-foreground.png');
-        --twitter-ph: url('images/twitter-placeholder.png');
-        --twitter-ph-expanded: url('images/twitter-placeholder-expanded.png');
-      }
+/* ------------------------------ */
+/* GLOBAL — No scrolling anywhere */
+/* ------------------------------ */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;   /* <-- No scrolling at all */
+  height: 100%;
+  width: 100%;
+}
 
-      body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: var(--background-image);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
-        color: #ffffff;
-      }
+/* Keep your existing variables */
+:root {
+  --toggle-button-width: 10px;
+  --vertical-position: 50%;
+  --default-width: 360px;
+  --default-height: 480px;
+  --expanded-width: 450px;
+  --expanded-height: 720px;
+  --border-radius: 15px;
+  --background-image: url('images/background.png');
+  --banner-logo: url('images/banner.png');
+  --twitter-icon-bg: url('images/twitter-background.png');
+  --twitter-icon-fg: url('images/twitter-foreground.png');
+  --chat-icon-bg: url('images/chat-background.png');
+  --chat-icon-fg: url('images/chat-foreground.png');
+  --twitter-ph: url('images/twitter-placeholder.png');
+  --twitter-ph-expanded: url('images/twitter-placeholder-expanded.png');
+}
 
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        height: 100vh;
-        padding: 30px 0;
-      }
+/* ------------------------------ */
+/* FIXED BACKGROUND               */
+/* ------------------------------ */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+}
 
-      .GTA-logo {
-        position: relative;
-        z-index: 2;
-      }
+/* ------------------------------ */
+/* MAIN VIEWPORT LAYOUT           */
+/* Everything sits inside 100vh   */
+/* ------------------------------ */
+.container {
+  position: fixed;
+  inset: 0; /* full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* space out logo, countdown, youtube */
+  align-items: center;
+  padding: 20px 0;
+  pointer-events: none; /* panels/buttons still work */
+}
 
-      .GTA-logo a img {
-        width: 700px;
-        max-width: 100%;
-        height: auto;
-        margin-top: 15px;
-      }
+/* ------------------------------ */
+/* GTA LOGO (top)                 */
+/* ------------------------------ */
+.GTA-logo {
+  z-index: 10;
+  pointer-events: auto;
+}
 
-      .GTA-logo a {
-        display: inline-block;
-        width: 65vw;
-        height: 10vh;
-        max-width: 700px;
-        max-height: 100px;
-        background-image: var(--banner-logo);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+.GTA-logo a {
+  display: inline-block;
+  width: 60vw;
+  max-width: 500px;
+  height: 12vh;
+  max-height: 110px;
+  background-image: var(--banner-logo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-      .countdown-timer {
-        position: center;
-        z-index: 1;
-        margin-top: -15px;
-        width: 70vw;
-        height: 10vh;
-        max-width: 560px;
-        max-height: 130px;
-      }
+/* ------------------------------ */
+/* COUNTDOWN (middle)             */
+/* ------------------------------ */
+.timer-wrapper {
+  z-index: 10;
+  width: 70vw;
+  max-width: 560px;
+  height: 10vh;
+  max-height: 130px;
+  overflow: hidden;
+  text-align: center;
+  pointer-events: auto;
+}
 
-      .video-and-chat-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 0px;
-        position: absolute;
-        top: var(--vertical-position);
-        transform: translateY(-50%);
-        width: 80%;
-        height: 50%;
-        z-index: 3;
-      }
+/* ------------------------------ */
+/* YOUTUBE (bottom-center)        */
+/* ------------------------------ */
+.iframe-youtube {
+  position: relative;
+  width: 70vw;
+  max-width: 900px;
+  pointer-events: auto;
+}
 
-      .twitter-wrapper {
-        position: fixed;
-        top: var(--vertical-position);
-        left: 0;
-        width: var(--default-width);
-        height: var(--default-height);
-        border-radius: var(--border-radius);
-        margin: 0;
-        z-index: 5;
-        overflow: hidden;
-      }
+.iframe-youtube::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
 
+.iframe-youtube iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
 
+/* ------------------------------ */
+/* LEFT PANEL — TWITTER           */
+/* RIGHT PANEL — CHAT             */
+/* These slide in/out using JS    */
+/* ------------------------------ */
+.twitter-wrapper,
+.countdown-chatroom {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--default-width);
+  height: var(--default-height);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  z-index: 20;
+  pointer-events: auto;
+}
 
+/* Twitter default hidden (JS moves it) */
+.twitter-wrapper {
+  left: -100%;
+}
 
-      .countdown-chatroom {
-        position: fixed;
-        top: var(--vertical-position);
-        right: 0;
-        width: var(--default-width);
-        height: var(--default-height);
-        border-radius: var(--border-radius);
-        transform: translateY(-50%);
-        z-index: 8;
-      }
+/* Chat default hidden */
+.countdown-chatroom {
+  right: -100%;
+}
 
-      .countdown-chatroom > div,
-      .countdown-chatroom > div > iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
+/* Inner iframe sizes */
+.countdown-chatroom > div,
+.countdown-chatroom iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-      .iframe-youtube {
-        position: relative;
-        overflow: hidden;
-        top: var(--vertical position);
-        margin-top: 22px;
-        width: 80vw;
-        max-width: 854px;
-      }
+/* Twitter placeholder */
+.twitter-feed-placeholder {
+  background-image: var(--twitter-ph);
+  background-size: cover;
+  background-position: center;
+}
 
-      .iframe-youtube::before {
-        content: "";
-        display: block;
-        padding-top: 56.25%; /* for a 16:9 aspect ratio */
-      }
-
-      .iframe-youtube iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .twitter-feed,
-      .iframe-youtube > iframe,
-      .countdown-chatroom > div > iframe {
-        border-radius: var(--border-radius);
-      }
-
-      .visitCounter {
-        position: fixed;
-        right: 20px;
-        bottom: 10px;
-        z-index: 100;
-      }
-
-      .twitter-wrapper,
-      .countdown-chatroom,
-      .iframe-youtube {
-        position: fixed;
-        top: var(--vertical-position);
-        transform: translateY(-50%);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-      }
-
-
-
-
-
-      #toggleChatContainer {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100;
-        width: 100px;
-        height: 100px;
-        overflow: visible;
-      }
-
-      #toggleChat {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border: none;
-        overflow: visible;
-        padding: 5%;
-        box-sizing: border-box;
-        background: var(--chat-icon-bg) no-repeat center / cover;
-      }
-
-      #toggleChat::before {
-        content: "";
-        position: absolute;
-        top: -10%; /* To center oversize, set -50% of height value past 100% */
-        left: -5%; /* To center oversize, set -50% of width value past 100% */
-        width: 110%;
-        height: 120%;
-        background: var(--chat-icon-fg) no-repeat center;
-        background-size: contain;
-      }
-
-
-      #toggleTweetContainer {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-        width: 100px;
-        height: 100px;
-        overflow: visible;
-      }
-
-      #toggleTweet {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border: none;
-        overflow: visible;
-        padding: 5%;
-        box-sizing: border-box;
-        background: var(--twitter-icon-bg) no-repeat center / cover;
-      }
-
-      #toggleTweet::before {
-        content: "";
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 120%;
-        height: 120%;
-        background: var(--twitter-icon-fg) no-repeat center;
-        background-size: contain;
-      }
-
-
-
-      #toggleTweet,
-      #toggleChat {
-        width: 100px;
-        height: 100px;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: 100%;
-        border: none;
-        border-radius: 20px;
-        overflow: visible;
-        z-index: 100;
-      }
-      
+/* ------------------------------ */
+/* TOGGLE BUTTONS                 */
+/* ------------------------------ */
 #toggleButtonsContainer {
-    position: fixed;
-    top: 20px;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    width: 98%;
-    padding: 20px;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 200;
+  pointer-events: auto;
 }
 
-#toggleTweetContainer {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-    width: 100px;
-    height: 100px;
-    overflow: visible;
-}
-
+#toggleTweetContainer,
 #toggleChatContainer {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    width: 100px;
-    height: 100px;
-    overflow: visible;
+  width: 100px;
+  height: 100px;
 }
 
+#toggleTweet, #toggleChat {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
 
-      .twitter-wrapper,
-      .countdown-chatroom {
-        position: fixed;
-        height: var(--default-height);
-        width: var(--default-width);
-        top: 50%;
-      }
+/* Icon overlays */
+#toggleTweet::before,
+#toggleChat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-      .twitter-feed-placeholder {
-        background-image: var(--twitter-ph);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+/* Twitter icon */
+#toggleTweet {
+  background-image: var(--twitter-icon-bg);
+}
+#toggleTweet::before {
+  background-image: var(--twitter-icon-fg);
+}
 
-      .twitter-error {
-        display: block;
-        font-size: 18px;
-        font-family: 'Arial', sans-serif;
-        color: #fff;
-        text-align: center;
-        text-shadow: 2px 2px 4px #000000;
-        z-index: 1;
-        top: 10px;
-        position: relative;
-      }
+/* Chat icon */
+#toggleChat {
+  background-image: var(--chat-icon-bg);
+}
+#toggleChat::before {
+  background-image: var(--chat-icon-fg);
+}
 
-      .twitter-timeline {
-        background-color: transparent !important;
-      }
+/* ------------------------------ */
+/* MOBILE FIXES — One static view */
+/* ------------------------------ */
+@media (max-width: 900px) {
 
-      #twitterWrapper,
-      #chatroomWrapper {
-        margin: 20px;
-      }
+  .GTA-logo a {
+    width: 80vw;
+    max-height: 80px;
+  }
 
-      .timer-wrapper {
-        height: 100px;
-        overflow: hidden;
-        z-index: 2;
-      }
+  .timer-wrapper {
+    width: 85vw;
+    height: 8vh;
+  }
 
-      .hideWrapper {
-        left: -100% !important;
-        right: -100% !important;
-      }
+  .iframe-youtube {
+    width: 90vw;
+  }
 
-      .showWrapper {
-        left: 0px !important;
-        right: 0px !important;
-      }
+  #toggleTweet, #toggleChat {
+    width: 70px;
+    height: 70px;
+  }
 
-
-
-      @media (min-width: 2200px) and (min-height: 1200px) {
-
-        .iframe-youtube {
-          width: 1280px;
-          max-width: none;
-        }
-
-        .iframe-youtube::before {
-          padding-top: 56.25%; /* Maintaining the 16:9 aspect ratio */
-        }
-
-        .iframe-youtube iframe {
-          width: 100%;
-          height: 100%;
-        }
-
-        .iframe-youtube > iframe {
-          margin-top: -4px;
-          width: 1280px;
-          height: 720px;
-        }
-
-        .twitter-feed-placeholder {
-          background-image: var(--twitter-ph-expanded);
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        .countdown-chatroom,
-        .twitter-wrapper {
-          height: var(--expanded-height);
-          width: var(--expanded-width);
-        }
-
-        .countdown-chatroom > * {
-          height: var(--expanded-height);
-          width: var(--expanded-width);
-        }
-      }
-
-      @media (max-width: 1100px) {
-
-        .iframe-youtube {
-          top: 10vh;
-        }
-
-        #toggleTweet,
-        #toggleChat {
-          height: 60px;
-          width: 60px;
-          border-radius: 10px;
-        }
-
-        #toggleChat {
-          left: 40px;
-        }
-        .twitter-wrapper, .countdown-chatroom {
-          top: 75%;
-          width: 45%; /* Full width minus 40px for padding */
-          height: 30%;
-        }
+  .twitter-wrapper,
+  .countdown-chatroom {
+    width: 85vw;
+    height: 40vh;
+  }
+}
